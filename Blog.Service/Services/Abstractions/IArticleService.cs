@@ -1,9 +1,10 @@
-﻿using Blog.Entity.Entities;
+﻿using Blog.Entity.DTOs.Articles;
+using Blog.Entity.Entities;
 
 namespace Blog.Service.Services.Abstractions
 {
     public interface IArticleService
     {
-        Task<List<Article>> GetAllArticlesAsync();
+        Task<List<ArticleDto>> GetAllArticlesAsync();
     }
 }

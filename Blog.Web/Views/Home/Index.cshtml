@@ -1,4 +1,4 @@
-﻿@model List<Article>
+﻿@model List<ArticleDto>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -20,6 +20,9 @@
         </div>
         <div class="card-body">
             <p class="card-text">@article.Content</p>
+        </div>
+        <div class="card-body">
+            <p class="card-text">@article.CreatedBy</p>
         </div>
     </div>
 }

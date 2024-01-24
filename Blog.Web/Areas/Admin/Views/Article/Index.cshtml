@@ -45,7 +45,17 @@
                             <td>@(article.IsDeleted ? "Aktif Değil" : "Aktif")</td>
                             <td>
                                 <a class="btn btn-primary btn-sm" data-id="@article.Id" asp-area="Admin" asp-controller="Article" asp-action="Update" asp-route-articleId="@article.Id"><i class="bx bxs-edit"></i></a>
-                                <a class="btn btn-danger btn-sm" data-id="@article.Id" asp-area="Admin" asp-controller="Article" asp-action="Delete" asp-route-articleId="@article.Id"><i class="bx bx-minus-circle"></i></a>
+                                <a class="btn btn-danger btn-sm" data-id="@article.Id" asp-area="Admin" asp-controller="Article" asp-action="Delete" asp-route-articleId="@article.Id" onclick="return confirm('Silmek istediğinden emin misin?')"><i class="bx bx-minus-circle"></i></a>
+                                <script>
+                                    function clicked(e) {
+                                        if (!confirm('Silmek istediğinden emin misin?')) {
+                                            e.preventDefault();
+                                        }
+                                    }
+                                </script>
+                                <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                                <link rel="stylesheet" href="~/web/alertify.min.js" />
+                                <script src="~/js/site.js" asp-append-version="true"></script>
                             </td>
                         </tr>
                         }

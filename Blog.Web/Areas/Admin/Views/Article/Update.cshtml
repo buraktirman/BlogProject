@@ -30,12 +30,21 @@
                             <span asp-validation-for="Title" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Content" id="defaultFormControlInput class="form-label">İçerik</label>
+                            <label asp-for="Content" for="defaultFormControlInput class="form-label">İçerik</label>
                             <textarea asp-for="Content" type="text" class="form-control mb-3" id="defaultFormControlInput" style="min-height:300px;" placeholder="İçerik" aria-describedby="defaultFormControlHelp"></textarea>
                             <span asp-validation-for="Content" class="text-danger"></span>
                         </div>
-
-
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label asp-for="Image.FileName" for="defaultFormControlInput class="form-label d-block">Mevcut Resim</label>
+                                <img style="height:30em; width:30em; display:block;" class="mb-3" src="~/images/@Model.Image.FileName" alt="@Model.Title" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label asp-for="Photo" id="defaultFormControlInput class="form-label">Resim Seçiniz</label>
+                                <input asp-for="Photo" type="file" accept="image/*" class="form-control mb-3" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp">
+                                <span asp-validation-for="Photo" class="text-danger"></span>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block">Kaydet</button>
                         </div>

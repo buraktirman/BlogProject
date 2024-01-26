@@ -1,5 +1,6 @@
 ﻿using Blog.Service.Services.Abstractions;
 using Blog.Service.Services.Concretes;
+using Blog.Service.Services.Helpers.Images;
 using Blog.Service.ValidationRules.FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Http;
@@ -23,6 +24,7 @@ namespace Blog.Service.Extensions
 
             services.AddScoped<IArticleService, ArticleService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IImageHelper, ImageHelper>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 

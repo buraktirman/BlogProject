@@ -33,5 +33,21 @@
                 return $"{categoryName} isimli kategori başarıyla silindi.";
             }
         }
+
+        public static class User
+        {
+            public static string Add(string userEmail)
+            {
+                return $"{userEmail} email adresli kullanıcı başarıyla eklendi.";
+            }
+            public static string Update(string userEmail)
+            {
+                return $"{userEmail} email adresli kullanıcı başarıyla güncellendi.";
+            }
+            public static string Delete(string userEmail)
+            {
+                return $"{userEmail} email adresli kullanıcı başarıyla silindi.";
+            }
+        }
     }
 }

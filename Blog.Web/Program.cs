@@ -1,6 +1,7 @@
 using Blog.Data.Context;
 using Blog.Data.Extensions;
 using Blog.Entity.Entities;
+using Blog.Service.Describers;
 using Blog.Service.Extensions;
 using Microsoft.AspNetCore.Identity;
 using NToastNotify;
@@ -20,14 +21,17 @@ builder.Services.AddControllersWithViews()
     })
     .AddRazorRuntimeCompilation();
 
+
 builder.Services.AddIdentity<AppUser, AppRole>(options =>
 {
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireLowercase = false;
     options.Password.RequireUppercase = false;
-}).AddRoleManager<RoleManager<AppRole>>()
-.AddEntityFrameworkStores<AppDbContext>()
-.AddDefaultTokenProviders();
+})
+    .AddRoleManager<RoleManager<AppRole>>()
+    .AddErrorDescriber<CustomIdentityErrorDescriber>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.ConfigureApplicationCookie(config =>
 {
